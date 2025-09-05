@@ -1,0 +1,15 @@
+name: Run Google Macro Daily
+
+on:
+  schedule:
+    # Runs every day at 10:00 PM Malaysia Time (14:00 UTC)
+    - cron: "0 14 * * *"
+  workflow_dispatch:   # allows manual run for testing
+
+jobs:
+  run-macro:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Google Apps Script Web App
+        run: |
+          curl -s "https://script.google.com/macros/s/AKfycbz3l6uFRTcGSEE1x9S_a4_pf4NwBtQhID1prmmGdl3vlx31Of8lplTMlWJQ4u3DoH0B/exec"
