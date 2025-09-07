@@ -9,7 +9,13 @@ on:
 jobs:
   run-macro:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Log timestamp of workflow trigger
+        run: |
+          echo "Workflow triggered at: $(date -u) UTC"
+          echo "Workflow triggered at: $(date) local runner time"
+          
       - name: Call Google Apps Script Web App
         run: |
           curl -s "https://script.google.com/macros/s/AKfycbz3l6uFRTcGSEE1x9S_a4_pf4NwBtQhID1prmmGdl3vlx31Of8lplTMlWJQ4u3DoH0B/exec"
